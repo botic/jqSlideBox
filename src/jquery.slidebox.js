@@ -17,6 +17,7 @@
 (function( $ ){
    $.fn.slidebox = function(options) {
       var settings = $.extend({
+         width: "100%",
          prevId: null,
          nextId: null,
          positionVisible: true,
@@ -31,8 +32,8 @@
       }
       
       // Abort of no frames are available
-      if (!settings.frames || !settings.width || !settings.height) {
-         throw "Error during initialization of jqSlideBox: frames, width and height are required";
+      if (!settings.frames) {
+         throw "Error during initialization of jqSlideBox: frames are required";
       }
       
       // Pre-fetching of images
@@ -88,7 +89,6 @@
          
          var $canvas = $("<div>").css({
             width: settings.width,
-            height: settings.height,
             overflow: "hidden"
          }).addClass("bsCanvas").attr("role", "img");
          
@@ -138,7 +138,7 @@
                   title: (settings.frames[pos].title || ""),
                   src: src,
                   width:  settings.frames[pos].width || settings.width,
-                  height: settings.frames[pos].height || settings.height
+                  height: settings.frames[pos].height || settings.height || "auto"
                });
                
                $positionCurrent.text(pos + 1);
