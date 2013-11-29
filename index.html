@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width">
+
+      <title>jqSlideBox</title>
+      
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="./src/jquery.slidebox.js"></script>
+      <script>
+         $(document).ready(function() {            
+            $("#highres").slidebox({
+               width:  "800px",
+               height: "800px",
+               frames: [
+                  {
+                     src:   "http://farm6.staticflickr.com/5519/10250521134_f47cdeb05d_c.jpg",
+                     src2x: "http://farm6.staticflickr.com/5519/10250521134_edaaf61885_h.jpg?2x",
+                     title: "",
+                     alt:   "Foto 1",
+                     caption: "A caption for photo 1"
+                  },
+                  {
+                     src:   "http://farm6.staticflickr.com/5538/10250713123_3a9001b6ae_c.jpg",
+                     src2x: "http://farm6.staticflickr.com/5538/10250713123_53879627e3_h.jpg?2x",
+                     title: "",
+                     alt:   "Foto 2",
+                     caption: "A caption for photo 2"
+                  },
+                  {
+                     src:   "http://farm3.staticflickr.com/2868/10250502414_05e41a762d_c.jpg",
+                     src2x: "http://farm3.staticflickr.com/2868/10250502414_50fdbc8c51_h.jpg?2x",
+                     title: "",
+                     alt:   "Foto 3",
+                     caption: "A caption for photo 3"
+                  }
+               ],
+               onRefresh: function(position, src) {
+                  if (window.console) {
+                     console.log("new photo loaded: " + position + " @ " + src);
+                  }
+               },
+               prevId: "#prev",
+               nextId: "#next"
+            });
+            
+            $("#secondShow").slidebox({
+               width:  "800px",
+               height: "800px",
+               frames: [
+                  {
+                     src:   "http://farm6.staticflickr.com/5519/10250521134_f47cdeb05d_c.jpg",
+                     src2x: "http://farm6.staticflickr.com/5519/10250521134_edaaf61885_h.jpg?2x",
+                     title: "",
+                     alt:   "Foto 1"
+                  },
+                  {
+                     src:   "http://farm6.staticflickr.com/5538/10250713123_3a9001b6ae_c.jpg",
+                     src2x: "http://farm6.staticflickr.com/5538/10250713123_53879627e3_h.jpg?2x",
+                     title: "",
+                     alt:   "Foto 2"
+                  },
+                  {
+                     src:   "http://farm3.staticflickr.com/2868/10250502414_05e41a762d_c.jpg",
+                     src2x: "http://farm3.staticflickr.com/2868/10250502414_50fdbc8c51_h.jpg?2x",
+                     title: "",
+                     alt:   "Foto 3"
+                  }
+               ],
+               onRefresh: function(position, src) {
+                  if (window.console) {
+                     console.log("new photo loaded: " + position + " @ " + src);
+                  }
+               },
+               prevId: "#prev2",
+               nextId: "#next2",
+               cacheSize: 2
+            });
+
+         });
+      </script>
+
+      <style>
+         .bsCanvas {
+            cursor: pointer;
+            text-align: center;
+            
+            /* disables gray highlight on iOS */
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+            
+            /** Use the background color to configure the fade color **/
+            background-color: #555;
+            
+            /* No selection of the image */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+         }
+
+         figure {
+            display: block;
+            margin: 0;
+         }
+
+         .bsCanvas img {
+            margin: 0 auto;
+         }
+      </style>      
+   </head>
+   <body>
+   
+      <button id="prev">Prev</button> <button id="next">Next</button>
+   
+      <div id="highres" class="bigSlider"></div>
+      
+      <hr/>
+      
+      <button id="prev2">Prev</button> <button id="next2">Next</button>
+      <div id="secondShow" class="bigSlider"></div>
+      
+   </body>
+</html>
