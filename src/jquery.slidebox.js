@@ -188,7 +188,6 @@
                var touchEvent = event.originalEvent.changedTouches[0];
                
                // Only change frame if swipe was under 2000ms AND not primary in y dimension
-               console.log(Math.abs((touchEvent.clientY - touch.y) / $canvas.height()))
                if (Date.now() - touch.time < 2000 && (Math.abs((touchEvent.clientY - touch.y) / $canvas.height()) < 0.15)) {
                   var swipeRatioX = (touchEvent.clientX - touch.x) / $canvas.width();
                   if (-1 < swipeRatioX && swipeRatioX < 1) {
